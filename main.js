@@ -67,24 +67,22 @@ const validateCred = (arr) => {
       doubleArr[i] -= 9;
     }
   }
-
-  console.log(doubleArr);
-
   const sum = doubleArr.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
     0
   );
   if (sum % 10 === 0) {
-    console.log("true");
     return true;
   } else {
-    console.log("false");
     return false;
   }
 };
 
 const findInvalidCards = arr => {
-    
+    const invalidCards = arr.filter(item => validateCred(item) === false);
+    return invalidCards;
 }
 
+
 validateCred(mystery5);
+console.log(findInvalidCards(batch)[0])
